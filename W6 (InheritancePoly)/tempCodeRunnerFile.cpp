@@ -1,0 +1,2 @@
+showInfoStudent(tutor);
+    // showInfoStaff(tutor);
