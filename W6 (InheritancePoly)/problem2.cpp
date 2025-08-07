@@ -20,7 +20,7 @@ class SchoolSystem {
         cout << "Adding Student: ";
         cout << "Enter new student's name: ";
         string name;
-        cin >> name;
+        getline(cin >> ws, name);
         cout << "Enter new student's ID: ";
         int id;
         cin >> id;
@@ -33,7 +33,7 @@ class SchoolSystem {
         cout << "Deleting Student: ";
         cout << "Enter student's name: ";
         string name;
-        cin >> name;
+        getline(cin >> ws, name);
         cout << "Enter student's ID: ";
         int id;
         cin >> id;
@@ -62,7 +62,8 @@ int main() {
 
             while (getline(fileReader, line)) {
                 stringstream ss(line);
-                ss >> name >> id;
+                getline(ss, name, ',');
+                ss >> id;
 
                 system.students.push_back(Student(name, id));
             }
@@ -99,8 +100,9 @@ int main() {
             fileWriter.open(fileName);
         }
         for (auto stu : system.students) {
-            fileWriter << stu.name << " " << stu.studentID << endl;
+            fileWriter << stu.name << " , " << stu.studentID << endl;
         }
+        fileReader.close();
         fileWriter.close();
 
         cout << endl;
