@@ -44,8 +44,7 @@ class Tutor : public Student, public Staff {
         cout << "Tutor " << Student::name << " is doing consultation" << endl;
     }
     void setName(string name) {
-    Student:
-        name = name;
+    Student::name = name;
     }
     string toString() override {
         return "Tutor: " + Student::name + "\n";
